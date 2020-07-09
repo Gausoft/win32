@@ -5,7 +5,7 @@
 // A convenient extension for converting integers to fixed-length hexadecimal
 // strings.
 
-extension HexConversion on int {
+extension HexConversion on int/*!*/ {
   /// Converts an integer value to a nicely-formatted hexadecimal equivalent.
   ///
   /// For example `255.toHex(8)` returns 0xFF.

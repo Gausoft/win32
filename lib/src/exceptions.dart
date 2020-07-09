@@ -17,7 +17,7 @@ int HRESULT(int hr) => hr.toUnsigned(32);
 
 /// Generic COM Exception
 class COMException implements Exception {
-  int hr;
+  int/*!*/ hr;
 
   COMException(int hr) {
     this.hr = HRESULT(hr);

@@ -313,12 +313,12 @@ class STARTUPINFOEX extends Struct {
 /// {@category Struct}
 class SECURITY_ATTRIBUTES extends Struct {
   @Uint32()
-  int nLength;
+  int /*!*/ nLength;
 
-  Pointer<Void> lpSecurityDescriptor;
+  Pointer<Void> /*!*/ lpSecurityDescriptor;
 
   @Int32()
-  int bInheritHandle;
+  int /*!*/ bInheritHandle;
 }
 
 // typedef struct _SECURITY_DESCRIPTOR {
@@ -585,8 +585,8 @@ class FINDREPLACE extends Struct {
   int hInstance;
   @Uint32()
   int Flags;
-  Pointer<Utf16> lpstrFindWhat;
-  Pointer<Utf16> lpstrReplaceWith;
+  Pointer<Utf16> /*!*/ lpstrFindWhat;
+  Pointer<Utf16> /*!*/ lpstrReplaceWith;
   @Uint16()
   int wFindWhatLen;
   @Uint16()
@@ -731,11 +731,11 @@ class OPENFILENAME extends Struct {
   @Uint32()
   int nFilterIndex;
 
-  Pointer<Utf16> lpstrFile;
+  Pointer<Utf16> /*!*/ lpstrFile;
   @Uint32()
   int nMaxFile;
 
-  Pointer<Utf16> lpstrFileTitle;
+  Pointer<Utf16> /*!*/ lpstrFileTitle;
   @Uint32()
   int nMaxFileTitle;
 
@@ -1076,29 +1076,29 @@ class SIZE extends Struct {
 /// {@category Struct}
 class MINMAXINFO extends Struct {
   @Int32()
-  int ptReservedX;
+  int /*!*/ ptReservedX;
   @Int32()
-  int ptReservedY;
+  int /*!*/ ptReservedY;
 
   @Int32()
-  int ptMaxSizeX;
+  int /*!*/ ptMaxSizeX;
   @Int32()
-  int ptMaxSizeY;
+  int /*!*/ ptMaxSizeY;
 
   @Int32()
-  int ptMaxPositionX;
+  int /*!*/ ptMaxPositionX;
   @Int32()
-  int ptMaxPositionY;
+  int /*!*/ ptMaxPositionY;
 
   @Int32()
-  int ptMinTrackSizeX;
+  int /*!*/ ptMinTrackSizeX;
   @Int32()
-  int ptMinTrackSizeY;
+  int /*!*/ ptMinTrackSizeY;
 
   @Int32()
-  int ptMaxTrackSizeX;
+  int /*!*/ ptMaxTrackSizeX;
   @Int32()
-  int ptMaxTrackSizeY;
+  int /*!*/ ptMaxTrackSizeY;
 }
 
 // typedef struct tagPOINT {
