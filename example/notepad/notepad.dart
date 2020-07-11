@@ -18,14 +18,14 @@ const APP_NAME = 'DartNote'; // DartPad was taken :)
 final hInstance = GetModuleHandle(nullptr);
 
 class Notepad {
-  static NotepadEditor editor;
-  static NotepadFind find;
+  static late NotepadEditor editor;
+  static late NotepadFind find;
 
   /// The handle of the Notepad window's text edit control
-  static int hwndEdit;
+  static late int hwndEdit;
 
-  static FINDREPLACE findReplace;
-  static int messageFindReplace;
+  static late FINDREPLACE findReplace;
+  static int? messageFindReplace;
   static int hDlgModeless = NULL;
 
   static final iOffset = allocate<Uint32>()..value = 0;

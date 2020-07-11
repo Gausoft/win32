@@ -82,8 +82,8 @@ String getComputerName() {
   return name;
 }
 
-Object getRegistryValue(int key, String subKey, String valueName) {
-  Object dataValue;
+Object? getRegistryValue(int key, String subKey, String valueName) {
+  Object? dataValue;
 
   final subKeyPtr = TEXT(subKey);
   final valueNamePtr = TEXT(valueName);

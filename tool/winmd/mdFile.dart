@@ -7,7 +7,7 @@ import 'package:win32/win32.dart';
 import 'mdType.dart';
 
 class WinmdFile {
-  IMetaDataImport2 reader;
+  IMetaDataImport2? reader;
 
   /// Constructs a [WinmdFile] object from a .winmd file.
   WinmdFile(File file) {
@@ -42,14 +42,14 @@ class WinmdFile {
     final rgTypeDefs = allocate<Uint32>();
     final pcTypeDefs = allocate<Uint32>();
 
-    var hr = reader.EnumTypeDefs(phEnum, rgTypeDefs, 1, pcTypeDefs);
+    var hr = reader!.EnumTypeDefs(phEnum, rgTypeDefs, 1, pcTypeDefs);
     while (hr == S_OK) {
       final token = rgTypeDefs.value;
 
       types.add(WinmdType.fromToken(reader, token));
-      hr = reader.EnumTypeDefs(phEnum, rgTypeDefs, 1, pcTypeDefs);
+      hr = reader!.EnumTypeDefs(phEnum, rgTypeDefs, 1, pcTypeDefs);
     }
-    reader.CloseEnum(phEnum.address);
+    reader!.CloseEnum(phEnum.address);
 
     free(rgTypeDefs);
     free(pcTypeDefs);
@@ -63,7 +63,7 @@ class WinmdFile {
     final szTypeDef = TEXT(type);
     final ptkTypeDef = allocate<Uint32>();
 
-    reader.FindTypeDefByName(szTypeDef, NULL, ptkTypeDef);
+    reader!.FindTypeDefByName(szTypeDef, NULL, ptkTypeDef);
 
     return WinmdType.fromToken(reader, ptkTypeDef.value);
   }

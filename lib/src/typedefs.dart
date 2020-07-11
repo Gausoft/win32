@@ -452,7 +452,7 @@ typedef defWindowProcDart = int Function(
 //   HGDIOBJ ho
 // );
 typedef deleteObjectNative = Int32 Function(IntPtr ho);
-typedef deleteObjectDart = int Function(int /*!*/ ho);
+typedef deleteObjectDart = int Function(int ho);
 
 // _BOOL DestroyPhysicalMonitor(
 //   HANDLE hMonitor
@@ -710,7 +710,7 @@ typedef freeLibraryDart = int Function(int hLibModule);
 //   LPRECT lpRect
 // );
 typedef getClientRectNative = Int32 Function(IntPtr hwnd, Pointer<RECT> lpRect);
-typedef getClientRectDart = int Function(int /*!*/ hwnd, Pointer<RECT> lpRect);
+typedef getClientRectDart = int Function(int hwnd, Pointer<RECT> lpRect);
 
 // BOOL GetComputerNameExW(
 //   COMPUTER_NAME_FORMAT NameType,
@@ -774,7 +774,7 @@ typedef getConsoleWindowDart = int Function();
 //   HWND hWnd
 // );
 typedef getDCNative = IntPtr Function(IntPtr hwnd);
-typedef getDCDart = int /*!*/ Function(int /*!*/ hwnd);
+typedef getDCDart = int Function(int hwnd);
 
 // _Post_equals_last_error_ DWORD GetLastError();
 typedef getLastErrorNative = Uint32 Function();
@@ -1150,7 +1150,7 @@ typedef heapFreeDart = int Function(int hHeap, int dwFlags, Pointer lpMem);
 typedef invalidateRectNative = Int32 Function(
     IntPtr hWnd, Pointer<RECT> lpRect, Int32 bErase);
 typedef invalidateRectDart = int Function(
-    int /*!*/ hWnd, Pointer<RECT> lpRect, int bErase);
+    int hWnd, Pointer<RECT> lpRect, int bErase);
 
 // int GetWindowTextW(
 //   HWND   hWnd,
@@ -1160,13 +1160,13 @@ typedef invalidateRectDart = int Function(
 typedef getWindowTextNative = Int32 Function(
     IntPtr hWnd, Pointer<Utf16> lpString, Int32 nMaxCount);
 typedef getWindowTextDart = int Function(
-    int /*!*/ hWnd, Pointer<Utf16> /*!*/ lpString, int nMaxCount);
+    int hWnd, Pointer<Utf16> lpString, int nMaxCount);
 
 // int GetWindowTextLengthW(
 //   HWND hWnd
 // );
 typedef getWindowTextLengthNative = Int32 Function(IntPtr hWnd);
-typedef getWindowTextLengthDart = int Function(int /*!*/ hWnd);
+typedef getWindowTextLengthDart = int Function(int hWnd);
 
 // HRESULT IIDFromString(
 //   LPCOLESTR lpsz,
@@ -1218,7 +1218,7 @@ typedef isWindowVisibleDart = int Function(int hWnd);
 //   UINT_PTR uIDEvent
 // );
 typedef killTimerNative = Int32 Function(IntPtr hWnd, IntPtr uIDEvent);
-typedef killTimerDart = int Function(int /*!*/ hWnd, int uIDEvent);
+typedef killTimerDart = int Function(int hWnd, int uIDEvent);
 
 // BOOL LineTo(
 //   HDC hdc,
@@ -1280,7 +1280,7 @@ typedef monitorFromWindowDart = int Function(int hwnd, int dwFlags);
 typedef moveWindowNative = Int32 Function(
     IntPtr hWnd, Int32 X, Int32 Y, Int32 nWidth, Int32 nHeight, Int32 bRepaint);
 typedef moveWindowDart = int Function(
-    int /*!*/ hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint);
+    int hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint);
 
 // BOOL MoveToEx(
 //   HDC     hdc,
@@ -1426,7 +1426,7 @@ typedef registerWindowMessageDart = int Function(Pointer<Utf16> lpString);
 //   HDC  hDC
 // );
 typedef releaseDCNative = Int32 Function(IntPtr hWnd, IntPtr hDC);
-typedef releaseDCDart = int Function(int /*!*/ hWnd, int hDC);
+typedef releaseDCDart = int Function(int hWnd, int hDC);
 
 // HWND ReplaceTextW(
 //   LPFINDREPLACEW Arg1
@@ -1508,7 +1508,7 @@ typedef sendInputDart = int Function(
 typedef sendMessageNative = IntPtr Function(
     IntPtr hWnd, Uint32 Msg, IntPtr wParam, IntPtr lParam);
 typedef sendMessageDart = int Function(
-    int /*!*/ hWnd, int Msg, int /*!*/ wParam, int lParam);
+    int hWnd, int Msg, int wParam, int lParam);
 
 // COLORREF SetBkColor(
 //   HDC      hdc,
@@ -1572,7 +1572,7 @@ typedef setConsoleTextAttributeDart = int Function(
 //   HWND hWnd
 // );
 typedef setFocusNative = IntPtr Function(IntPtr hWnd);
-typedef setFocusDart = int Function(int /*!*/ hWnd);
+typedef setFocusDart = int Function(int hWnd);
 
 // int SetMapMode(
 //   HDC hdc,
@@ -1673,7 +1673,7 @@ typedef setTextColorDart = int Function(int hdc, int color);
 // );
 typedef setTimerNative = IntPtr Function(IntPtr hWnd, IntPtr nIDEvent,
     Uint32 uElapse, Pointer<NativeFunction> lpTimerFunc);
-typedef setTimerDart = int Function(int /*!*/ hWnd, int nIDEvent, int uElapse,
+typedef setTimerDart = int Function(int hWnd, int nIDEvent, int uElapse,
     Pointer<NativeFunction> lpTimerFunc);
 
 // BOOL SetViewportExtEx(
@@ -1716,7 +1716,7 @@ typedef setWindowExtExDart = int Function(
 typedef setWindowTextNative = Int32 Function(
     IntPtr hWnd, Pointer<Utf16> lpString);
 typedef setWindowTextDart = int Function(
-    int /*!*/ hWnd, Pointer<Utf16> lpString);
+    int hWnd, Pointer<Utf16> lpString);
 
 // SHFOLDERAPI SHGetFolderPathW(
 //   HWND   hwnd,
@@ -1821,8 +1821,8 @@ typedef stretchDIBitsDart = int Function(
     int hdc,
     int xDest,
     int yDest,
-    int /*!*/ DestWidth,
-    int /*!*/ DestHeight,
+    int DestWidth,
+    int DestHeight,
     int xSrc,
     int ySrc,
     int SrcWidth,

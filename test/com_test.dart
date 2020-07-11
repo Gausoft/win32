@@ -65,7 +65,7 @@ void main() {
   });
 
   group('COM object tests', () {
-    FileOpenDialog dialog;
+    late FileOpenDialog dialog;
     setUp(() {
       final hr = CoInitializeEx(
           nullptr, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);

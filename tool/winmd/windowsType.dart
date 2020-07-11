@@ -1,7 +1,7 @@
 import 'enums.dart';
 
 class WindowsRuntimeType {
-  final CorTypeToDartStringMapping = <int, String>{
+  final CorTypeToDartStringMapping = <int, String?>{
     CorElementType.ELEMENT_TYPE_END: null,
     CorElementType.ELEMENT_TYPE_VOID: 'void',
     CorElementType.ELEMENT_TYPE_BOOLEAN: 'bool',
@@ -37,7 +37,7 @@ class WindowsRuntimeType {
     CorElementType.ELEMENT_TYPE_MAX: null,
   };
 
-  final CorTypeToNativeStringMapping = <int, String>{
+  final CorTypeToNativeStringMapping = <int, String?>{
     CorElementType.ELEMENT_TYPE_END: null,
     CorElementType.ELEMENT_TYPE_VOID: 'Void',
     CorElementType.ELEMENT_TYPE_BOOLEAN: 'Int32',
@@ -77,7 +77,7 @@ class WindowsRuntimeType {
 
   WindowsRuntimeType(this.corType);
 
-  String get toDartType => CorTypeToDartStringMapping[corType];
+  String? get toDartType => CorTypeToDartStringMapping[corType];
 
-  String get toNativeType => CorTypeToNativeStringMapping[corType];
+  String? get toNativeType => CorTypeToNativeStringMapping[corType];
 }

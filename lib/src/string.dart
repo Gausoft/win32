@@ -20,7 +20,7 @@ Pointer<Uint8> convertToANSIString(String str) {
 
 final TEXT = Utf16.toUtf16;
 
-extension Utf16Conversion on Pointer<Utf16>/*!*/ {
+extension Utf16Conversion on Pointer<Utf16> {
   String unpackString(int maxLength) {
     final pathData = cast<Uint16>().asTypedList(maxLength);
 

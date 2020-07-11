@@ -19,7 +19,7 @@ class WinmdParameter {
       this.typeFlag, this.name, this.paramValueLength);
 
   factory WinmdParameter.fromToken(IMetaDataImport2 reader, int token) {
-    WinmdParameter parameter;
+    late WinmdParameter parameter;
 
     final pmd = allocate<Uint32>();
     final pulSequence = allocate<Uint32>();

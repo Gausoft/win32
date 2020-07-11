@@ -74,8 +74,8 @@ class WinmdMethod {
     }
   }
 
-  WinmdParameter get returnType {
-    WinmdParameter parameter;
+  WinmdParameter? get returnType {
+    WinmdParameter? parameter;
 
     final ptkParamDef = allocate<Uint32>();
     var hr = reader.GetParamForMethodIndex(token, 0, ptkParamDef);

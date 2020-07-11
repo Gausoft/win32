@@ -194,5 +194,5 @@ const intTypes = <String>[
   'Uint64'
 ];
 
-String dartType(String nativeType) =>
+String? dartType(String? nativeType) =>
     intTypes.contains(nativeType) ? 'int' : nativeType;

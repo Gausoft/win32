@@ -11,28 +11,28 @@ import 'types.dart';
 enum SourceType { header, idl, unknown }
 
 class Parameter {
-  String type;
-  String name;
+  String? type;
+  late String name;
   bool supported = true;
 }
 
 class Method {
-  String name;
-  String returnType;
-  List<Parameter> parameters;
+  late String name;
+  String? returnType;
+  late List<Parameter> parameters;
 }
 
 class Interface {
-  SourceType sourceType;
-  String iid;
-  String name;
+  SourceType? sourceType;
+  String? iid;
+  String? name;
   bool generateClass = false;
-  String clsid;
-  String className;
-  String inherits;
-  int vtableStart;
+  String? clsid;
+  String? className;
+  String? inherits;
+  late int vtableStart;
 
-  List<Method> methods;
+  late List<Method?> methods;
 
   String get headerAsString {
     final buffer = StringBuffer();
@@ -85,7 +85,7 @@ import '../winrt/winrt_constants.dart';
       var generateTypedef = true;
 
       // Check all params are supported
-      for (var params in method.parameters) {
+      for (var params in method!.parameters) {
         if (!params.supported) {
           generateTypedef = false;
         }
@@ -147,14 +147,14 @@ import '../winrt/winrt_constants.dart';
     buffer.writeln('''
   // vtable begins at $vtableStart, ends at ${vtableStart + methods.length - 1}
 ''');
-    if (inherits.isNotEmpty) {
+    if (inherits!.isNotEmpty) {
       buffer.writeln('  @override');
     }
     buffer.write('''
   Pointer<COMObject> ptr;
 
   $name(this.ptr)''');
-    if (inherits.isNotEmpty) {
+    if (inherits!.isNotEmpty) {
       buffer.write(': super(ptr)');
     }
     buffer.writeln(';\n');
@@ -163,7 +163,7 @@ import '../winrt/winrt_constants.dart';
       var generateMethod = true;
 
       // Check all params are supported
-      for (var params in method.parameters) {
+      for (var params in method!.parameters) {
         if (!params.supported) {
           generateMethod = false;
         }
@@ -187,7 +187,7 @@ import '../winrt/winrt_constants.dart';
     return buffer.toString();
   }
 
-  String dartMethod(Method method, int vtableIndex) {
+  String dartMethod(Method method, int? vtableIndex) {
     final buffer = StringBuffer();
     buffer.write('  ${dartType(method.returnType)} ${method.name}(');
     for (var idx = 0; idx < method.parameters.length; idx++) {
@@ -218,9 +218,9 @@ import '../winrt/winrt_constants.dart';
     return buffer.toString();
   }
 
-  String dartGetProperty(Method method, int vtableIndex) {
-    final rootType = method.parameters[0].type
-        .substring(8, method.parameters[0].type.length - 1);
+  String dartGetProperty(Method method, int? vtableIndex) {
+    final rootType = method.parameters[0].type!
+        .substring(8, method.parameters[0].type!.length - 1);
     final buffer = StringBuffer();
 
     var exposedMethodName = method.name.substring(4);
@@ -250,7 +250,7 @@ import '../winrt/winrt_constants.dart';
     return buffer.toString();
   }
 
-  String dartSetProperty(Method method, int vtableIndex) {
+  String dartSetProperty(Method method, int? vtableIndex) {
     final buffer = StringBuffer();
 
     buffer.writeln('''

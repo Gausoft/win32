@@ -56,7 +56,7 @@ void listParameters([String type = 'Windows.Globalization.Calendar']) {
     print('[${parameters[i].sequence}] ${parameters[i].name}');
   }
 
-  final returnType = method.returnType;
+  final returnType = method.returnType!;
   print('\nreturns: ${returnType.name}');
 }
 

@@ -18,8 +18,8 @@ class NotepadEditor {
   final int _hwnd;
   final int _hwndEdit;
 
-  NotepadFile file;
-  NotepadFont font;
+  late NotepadFile file;
+  NotepadFont? font;
 
   NotepadEditor(this._hwnd, this._hwndEdit) {
     file = NotepadFile(_hwnd);
@@ -27,7 +27,7 @@ class NotepadEditor {
 
   void Dispose() {
     if (font != null) {
-      font.Dispose();
+      font!.Dispose();
     }
   }
 
@@ -95,8 +95,8 @@ class NotepadEditor {
   void SetFont() {
     font ??= NotepadFont(_hwnd);
 
-    if (font.NotepadChooseFont(_hwnd)) {
-      font.NotepadSetFont(_hwndEdit);
+    if (font!.NotepadChooseFont(_hwnd)) {
+      font!.NotepadSetFont(_hwndEdit);
     }
   }
 

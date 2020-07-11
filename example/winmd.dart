@@ -133,16 +133,14 @@ void main(List<String> args) {
   }
   final winmdFile = metadataFileContainingType(args.first);
 
-  if (winmdFile != null) {
-    print('Type ${args.first} can be found in ${winmdFile.path}.');
+  print('Type ${args.first} can be found in ${winmdFile.path}.');
 
-    print('\nLooking for other types in the same file...\n');
+  print('\nLooking for other types in the same file...\n');
 
-    final types = metadataTypesInFile(winmdFile);
-    print('Found ${types.length} types:');
-    for (var type in types) {
-      print(
-          '[${toHex(type.token)}] ${type.typeName} (baseType: ${toHex(type.baseTypeToken)})');
-    }
+  final types = metadataTypesInFile(winmdFile);
+  print('Found ${types.length} types:');
+  for (var type in types) {
+    print(
+        '[${toHex(type.token)}] ${type.typeName} (baseType: ${toHex(type.baseTypeToken)})');
   }
 }
