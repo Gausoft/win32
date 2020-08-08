@@ -746,26 +746,6 @@ typedef enumWindowsNative = Int32 Function(
 typedef enumWindowsDart = int Function(
     Pointer<NativeFunction> lpEnumFunc, int lParam);
 
-// BOOL WINAPI FillConsoleOutputCharacter(
-//   _In_  HANDLE  hConsoleOutput,
-//   _In_  TCHAR   cCharacter,
-//   _In_  DWORD   nLength,
-//   _In_  COORD   dwWriteCoord,
-//   _Out_ LPDWORD lpNumberOfCharsWritten
-// );
-typedef fillConsoleOutputCharacterNative = Int32 Function(
-    IntPtr hConsoleOutput,
-    Uint8 cCharacter,
-    Uint32 nLength,
-    Int32 dwWriteCoord,
-    Pointer<Uint32> lpNumberOfCharsWritten);
-typedef fillConsoleOutputCharacterDart = int Function(
-    int hConsoleOutput,
-    int cCharacter,
-    int nLength,
-    int dwWriteCoord,
-    Pointer<Uint32> lpNumberOfCharsWritten);
-
 // BOOL WINAPI FillConsoleOutputAttribute(
 //   _In_  HANDLE  hConsoleOutput,
 //   _In_  WORD    wAttribute,

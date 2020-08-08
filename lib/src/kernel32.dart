@@ -23,7 +23,13 @@ final AttachConsole = _kernel32
     .lookupFunction<attachConsoleNative, attachConsoleDart>('AttachConsole');
 
 /// {@category kernel32}
-final Beep = _kernel32.lookupFunction<beepNative, beepDart>('Beep');
+// BOOL Beep(
+//   DWORD dwFreq,
+//   DWORD dwDuration
+// );
+final Beep = _kernel32.lookupFunction<
+    Int32 Function(Uint32 dwFreq, Uint32 dwDuration),
+    int Function(int dwFreq, int dwDuration)>('Beep');
 
 /// {@category kernel32}
 final BeginUpdateResource = _kernel32.lookupFunction<beginUpdateResourceNative,
@@ -79,10 +85,23 @@ final FillConsoleOutputAttribute = _kernel32.lookupFunction<
     fillConsoleOutputAttributeNative,
     fillConsoleOutputAttributeDart>('FillConsoleOutputAttribute');
 
+// BOOL WINAPI FillConsoleOutputCharacter(
+//   _In_  HANDLE  hConsoleOutput,
+//   _In_  TCHAR   cCharacter,
+//   _In_  DWORD   nLength,
+//   _In_  COORD   dwWriteCoord,
+//   _Out_ LPDWORD lpNumberOfCharsWritten
+// );
 /// {@category kernel32}
 final FillConsoleOutputCharacter = _kernel32.lookupFunction<
-    fillConsoleOutputCharacterNative,
-    fillConsoleOutputCharacterDart>('FillConsoleOutputCharacterW');
+    Int32 Function(IntPtr hConsoleOutput, Uint8 cCharacter, Uint32 nLength,
+        Int32 dwWriteCoord, Pointer<Uint32> lpNumberOfCharsWritten),
+    int Function(
+        int hConsoleOutput,
+        int cCharacter,
+        int nLength,
+        int dwWriteCoord,
+        Pointer<Uint32> lpNumberOfCharsWritten)>('FillConsoleOutputCharacterW');
 
 /// {@category kernel32}
 final FindFirstVolume =
